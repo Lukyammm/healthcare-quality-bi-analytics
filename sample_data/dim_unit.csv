@@ -1,0 +1,7 @@
+unit_id,unit_name,service_line,bed_count,active_flag
+U001,Emergency Department,Acute Care,32,true
+U002,Medical Ward,Inpatient Care,48,true
+U003,Surgical Ward,Surgical Care,36,true
+U004,Intensive Care Unit,Critical Care,18,true
+U005,Maternity Unit,Women's Health,22,true
+U006,Pediatric Unit,Children's Health,20,true

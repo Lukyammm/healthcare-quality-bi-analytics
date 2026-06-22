@@ -1,0 +1,7 @@
+target_id,target_domain,target_name,target_threshold_pct
+T001,Patient Identification,Wristband readable and correct,0.95
+T002,Medication Safety,High-alert medication double-check,0.90
+T003,Fall Prevention,Fall risk assessment documented,0.92
+T004,Infection Prevention,Hand hygiene opportunity completed,0.90
+T005,Communication,Safety handoff documented,0.88
+T006,Equipment Safety,Emergency equipment checklist complete,0.93

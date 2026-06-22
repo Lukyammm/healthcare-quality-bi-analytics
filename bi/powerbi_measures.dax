@@ -1,0 +1,88 @@
+-- Power BI DAX measures for Healthcare Quality BI Analytics.
+-- Table names assume CSVs were loaded as dim_unit, dim_safety_target,
+-- fact_safety_walks, and fact_notifications.
+
+Total Observations =
+SUM ( fact_safety_walks[observations] )
+
+Compliant Observations =
+SUM ( fact_safety_walks[compliant_observations] )
+
+Safety Compliance Rate =
+DIVIDE ( [Compliant Observations], [Total Observations] )
+
+Target Threshold =
+AVERAGE ( dim_safety_target[target_threshold_pct] )
+
+Compliance Target Gap =
+[Safety Compliance Rate] - [Target Threshold]
+
+Notifications =
+COUNTROWS ( fact_notifications )
+
+Critical Notifications =
+CALCULATE (
+    [Notifications],
+    fact_notifications[severity] = "Critical"
+)
+
+High or Critical Notifications =
+CALCULATE (
+    [Notifications],
+    fact_notifications[severity] IN { "High", "Critical" }
+)
+
+Affected Patient Notifications =
+CALCULATE (
+    [Notifications],
+    fact_notifications[affected_patient_flag] = TRUE ()
+)
+
+Affected Patient Rate =
+DIVIDE ( [Affected Patient Notifications], [Notifications] )
+
+Completed Responses =
+CALCULATE (
+    [Notifications],
+    fact_notifications[response_status] = "Completed"
+)
+
+Overdue Responses =
+CALCULATE (
+    [Notifications],
+    fact_notifications[response_status] = "Overdue"
+)
+
+Responses Within SLA =
+CALCULATE (
+    [Notifications],
+    fact_notifications[response_status] = "Completed",
+    fact_notifications[days_to_response] <= 7
+)
+
+Response SLA Rate =
+DIVIDE ( [Responses Within SLA], [Notifications] )
+
+Average Days to Response =
+AVERAGE ( fact_notifications[days_to_response] )
+
+Severity Weight =
+SUMX (
+    fact_notifications,
+    SWITCH (
+        fact_notifications[severity],
+        "Critical", 4,
+        "High", 3,
+        "Moderate", 2,
+        "Low", 1,
+        0
+    )
+)
+
+Risk Priority Score =
+VAR TargetGapPenalty =
+    MAX ( 0, - [Compliance Target Gap] ) * 100
+VAR OverduePenalty =
+    [Overdue Responses] * 5
+RETURN
+    TargetGapPenalty + [Severity Weight] + OverduePenalty

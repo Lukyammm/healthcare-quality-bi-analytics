@@ -1,49 +1,98 @@
-# Patient Safety Analytics
+# Healthcare Quality BI Analytics
 
-Repository: `patient-safety-analytics`
+Repository: `healthcare-quality-bi-analytics`
 
 ## Overview
 
-Web dashboard for patient safety indicators, COSEP safety walks, notifications, institutional targets, and PDF-ready report pages.
+Healthcare Quality BI Analytics is a portfolio case study for a junior Data Analyst or BI Analyst role. It expands a patient safety dashboard into a full analytics project with synthetic data, SQL transformations, dimensional modeling, data quality checks, and Power BI-ready measures.
 
-## Main Capabilities
+The project focuses on hospital quality operations: safety walks, compliance targets, patient safety notifications, response follow-up, and unit-level risk prioritization.
 
-- Separated filter surfaces for COSEP safety walks and notifications.
-- Patient safety KPI cards, trend charts, target tables, and attention points.
-- Notification analytics by affected patient, completion status, event type, and sector.
-- Institutional report pages prepared for PDF export.
+## Business Problem
 
-## Operating Flow
+Healthcare quality teams often collect operational safety data in forms and spreadsheets, but the data is hard to use when it stays fragmented across manual reports. Leaders need a reliable way to answer questions such as:
 
-1. The user selects year, unit, and notification filters.
-2. The app validates the minimum filter set and updates the selection summary.
-3. COSEP and notification report pages are rendered with fictitious sample data in the guide.
-4. The generated report can be exported with the institutional layout.
+- Which units are below patient safety compliance targets?
+- Which safety domains have the highest gap against target?
+- Are critical notifications being followed up within expected response windows?
+- Which units should be prioritized for review or intervention?
 
-## Visual System Guide
+## BI Deliverables
 
-> The screens below are documentation mockups based on the components, labels, colors, and workflows found in this repository. All displayed data is fictitious and does not represent real patients, staff members, or institutions.
+- Synthetic healthcare quality datasets in `sample_data/`.
+- A star-schema style data model documented in `data_model.md`.
+- SQL schema, KPI queries, and data quality checks in `sql/`.
+- Power BI-ready DAX measures and dashboard guidance in `bi/`.
+- Original Google Apps Script dashboard prototype for web reporting.
+- Privacy statement for portfolio use in `DATA_PRIVACY.md`.
 
-### Bulletin - COSEP and notification filters
-![Bulletin - COSEP and notification filters](./docs/screenshots/dashboard-home.svg)
+## Analytics Skills Demonstrated
 
-### Bulletin - COSEP report page
-![Bulletin - COSEP report page](./docs/screenshots/dashboard-filters.svg)
+- SQL table design and KPI aggregation.
+- Dimensional modeling with fact and dimension tables.
+- Data quality validation for missing values, invalid rates, orphan keys, and duplicates.
+- Healthcare operations metrics: compliance rate, target gap, response SLA, notification severity, affected patient rate, and risk priority.
+- Dashboard design for executive, operational, and quality improvement audiences.
+- Privacy-aware portfolio packaging with synthetic data only.
 
-### Bulletin - notifications report page
-![Bulletin - notifications report page](./docs/screenshots/dashboard-indicators.svg)
+## Project Structure
+
+```text
+.
+├── sample_data/
+│   ├── dim_unit.csv
+│   ├── dim_safety_target.csv
+│   ├── fact_safety_walks.csv
+│   └── fact_notifications.csv
+├── sql/
+│   ├── schema.sql
+│   ├── kpi_queries.sql
+│   └── data_quality_checks.sql
+├── bi/
+│   ├── README.md
+│   └── powerbi_measures.dax
+├── data_model.md
+├── DATA_PRIVACY.md
+├── Code.gs
+├── Index.html
+└── docs/screenshots/
+```
+
+## Key Metrics
+
+- Safety compliance rate
+- Compliance target gap
+- Low-performing unit count
+- Critical notification count
+- Response completion rate
+- Response SLA rate
+- Average days to response
+- Affected patient rate
+- Unit risk priority score
+
+## Dashboard Concept
+
+The BI layer is designed around three views:
+
+1. Executive Overview: compliance trend, target gap, critical notifications, SLA response.
+2. Unit Performance: unit ranking, under-target units, safety domain breakdown.
+3. Data Quality and Follow-up: missing responses, duplicate checks, unresolved events.
 
 ## Data Privacy
 
-The repository documentation and guide images use fictitious sample data only.
+This project uses synthetic and fictitious portfolio data only. It does not intentionally include production records, patient identifiers, employee identifiers, credentials, internal exports, PHI, or PII.
+
+See `DATA_PRIVACY.md` for the full privacy statement.
 
 ## Technologies
 
-- JavaScript
-- HTML/CSS
+- SQL
+- Power BI / DAX concepts
 - Google Apps Script
 - Google Sheets
+- HTML/CSS/JavaScript
+- Chart.js
 
 ## Status
 
-Completed
+Portfolio BI case study.

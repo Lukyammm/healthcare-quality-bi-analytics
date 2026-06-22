@@ -1,0 +1,19 @@
+notification_id,event_date,unit_id,event_type,severity,affected_patient_flag,response_status,days_to_response
+N001,2026-01-03,U001,Medication variance,High,true,Completed,4
+N002,2026-01-07,U002,Fall event,Moderate,true,Completed,6
+N003,2026-01-09,U004,Equipment readiness,Critical,false,Overdue,12
+N004,2026-01-14,U006,Handoff gap,Moderate,false,In Review,8
+N005,2026-01-18,U003,Surgical checklist gap,High,false,Completed,5
+N006,2026-01-22,U005,Identification mismatch,Critical,true,Completed,3
+N007,2026-02-02,U001,Hand hygiene observation,Low,false,Completed,2
+N008,2026-02-06,U002,Fall prevention gap,High,true,Overdue,11
+N009,2026-02-12,U004,Medication variance,Critical,true,In Review,9
+N010,2026-02-16,U003,Equipment readiness,Moderate,false,Completed,4
+N011,2026-02-20,U005,Handoff gap,Low,false,Completed,2
+N012,2026-02-26,U006,Identification mismatch,High,true,Pending,
+N013,2026-03-04,U001,Medication variance,Moderate,true,Completed,5
+N014,2026-03-08,U002,Fall event,High,true,Completed,6
+N015,2026-03-12,U004,Equipment readiness,Critical,false,Overdue,14
+N016,2026-03-15,U003,Surgical checklist gap,Moderate,false,Completed,3
+N017,2026-03-18,U005,Handoff gap,Low,false,Completed,1
+N018,2026-03-22,U006,Hand hygiene observation,Moderate,false,In Review,7

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -49,6 +49,12 @@
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
+    @keyframes breatheBg {
+      0% { transform: scale(1); opacity: 0.22; }
+      50% { transform: scale(1.15); opacity: 0.35; }
+      100% { transform: scale(1); opacity: 0.22; }
+    }
+
     body::before,
     body::after {
       content: '';
@@ -56,9 +62,9 @@
       inset: auto;
       border-radius: 999px;
       filter: blur(40px);
-      opacity: 0.22;
       pointer-events: none;
       z-index: 0;
+      animation: breatheBg 12s ease-in-out infinite;
     }
 
     body::before {
@@ -66,7 +72,8 @@
       height: 280px;
       top: -80px;
       left: -60px;
-      background: rgba(15, 118, 110, 0.22);
+      background: rgba(15, 118, 110, 0.3);
+      animation-delay: 0s;
     }
 
     body::after {
@@ -74,7 +81,8 @@
       height: 240px;
       right: -60px;
       bottom: 80px;
-      background: rgba(20, 184, 166, 0.2);
+      background: rgba(20, 184, 166, 0.25);
+      animation-delay: -6s;
     }
 
     .top-menu-wrap {
@@ -2216,7 +2224,7 @@
 
     /* ════════════ KPIs EM DESTAQUE (mantém A4 imprimível) ════════════ */
     .metric-card { position: relative; border-radius: 16px; overflow: hidden; }
-    .metric-card strong { font-size: 26px; letter-spacing: -.02em; font-weight: 800; }
+    .metric-card strong { font-family: 'Outfit', sans-serif; font-size: 32px; letter-spacing: -.02em; font-weight: 800; }
     .metric-card.green strong { color: var(--green); }
     .metric-card.amber strong { color: var(--amber); }
     .metric-card.red   strong { color: var(--red); }

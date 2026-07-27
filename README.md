@@ -97,12 +97,13 @@ See `DATA_PRIVACY.md` for the full privacy statement.
 
 Portfolio BI case study.
 
+
 ---
 
-## ðŸ¤ Contato e ContribuiÃ§Ã£o
+## 🤝 Contato e Contribuição
 
-Feito com dedicaÃ§Ã£o por **Lukyam Madeira**.
-Sinta-se Ã  vontade para explorar, abrir *issues* para dÃºvidas ou sugerir melhorias.
+Feito com dedicação por **Lukyam Madeira**.
+Sinta-se à vontade para explorar, abrir *issues* para dúvidas ou sugerir melhorias.
 
 <div align="center">
   <a href="https://github.com/Lukyammm">

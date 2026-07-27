@@ -6365,5 +6365,115 @@
       }
     })();
   </script>
+
+<!-- Personal Brand Component -->
+<script>
+(function() {
+  if (document.getElementById('lukyam-watermark-btn')) return;
+
+  var style = document.createElement('style');
+  style.innerHTML = `.lukyam-watermark-btn{position:fixed;bottom:16px;right:16px;background:rgba(15,23,42,0.25);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border:1px solid rgba(255,255,255,0.08);color:rgba(248,250,252,0.35);padding:6px 12px;border-radius:20px;font-size:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-weight:500;cursor:pointer;z-index:999998;box-shadow:0 4px 12px rgba(0,0,0,0.05);display:flex;align-items:center;gap:6px;transition:all 0.3s ease;}.lukyam-watermark-btn:hover{background:rgba(15,23,42,0.85);transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.2);border-color:rgba(255,255,255,0.25);color:#f8fafc;}.lukyam-watermark-btn svg{width:14px;height:14px;fill:rgba(96,165,250,0.9);transition:all 0.3s ease;}.lukyam-watermark-btn:hover svg{fill:#60a5fa;}.lukyam-watermark-modal{display:block;visibility:hidden;opacity:0;position:fixed;bottom:60px;right:16px;width:320px;max-width:calc(100vw - 32px);background:#ffffff;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.15),0 0 0 1px rgba(0,0,0,0.05);z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:20px;transform:translateY(12px) scale(0.98);transition:all 0.25s cubic-bezier(0.16,1,0.3,1);pointer-events:none;box-sizing:border-box;}.lukyam-watermark-modal.show{visibility:visible;opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}.lukyam-watermark-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}.lukyam-watermark-title{margin:0;font-size:16px;font-weight:600;color:#0f172a;}.lukyam-watermark-close{background:none;border:none;font-size:20px;line-height:1;cursor:pointer;color:#94a3b8;padding:4px;margin:-4px -4px 0 0;border-radius:4px;transition:color 0.15s,background 0.15s;}.lukyam-watermark-close:hover{color:#0f172a;background:#f1f5f9;}.lukyam-watermark-desc{margin:0 0 16px 0;font-size:13px;color:#475569;line-height:1.5;}.lukyam-watermark-links{display:flex;flex-direction:column;gap:8px;}.lukyam-watermark-link{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;color:#0f172a;text-decoration:none;font-size:13px;font-weight:500;transition:all 0.15s;box-sizing:border-box;cursor:pointer;width:100%;font-family:inherit;}.lukyam-watermark-link:hover{background:#f1f5f9;border-color:#cbd5e1;color:#0f172a;}.lukyam-watermark-link svg{width:14px;height:14px;fill:currentColor;}@media (max-width:480px){.lukyam-watermark-btn{bottom:12px;right:12px;padding:6px 10px;font-size:11px;}.lukyam-watermark-modal{bottom:50px;right:12px;max-width:calc(100vw - 24px);padding:16px;}}@media (prefers-color-scheme:dark){.lukyam-watermark-modal{background:#1e293b;box-shadow:0 12px 32px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.1);}.lukyam-watermark-title{color:#f8fafc;}.lukyam-watermark-desc{color:#94a3b8;}.lukyam-watermark-close:hover{background:#334155;color:#f8fafc;}.lukyam-watermark-link{background:#0f172a;border-color:#334155;color:#e2e8f0;}.lukyam-watermark-link:hover{background:#1e293b;border-color:#475569;color:#f8fafc;}}`;
+  document.head.appendChild(style);
+
+  var svgCode = '<svg viewBox="0 0 640 512"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>';
+  var svgGithub = '<svg viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>';
+  var svgEnv = '<svg viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>';
+  
+  var container = document.createElement('div');
+  container.innerHTML = `
+    <button class="lukyam-watermark-btn" id="lukyam-watermark-btn" aria-label="Sobre o desenvolvedor" title="Sobre o desenvolvedor">
+      ${svgCode} Lukyam
+    </button>
+    <div id="lukyam-watermark-modal" class="lukyam-watermark-modal" role="dialog" aria-modal="true">
+      <div class="lukyam-watermark-header">
+        <h4 class="lukyam-watermark-title">Desenvolvedor</h4>
+        <button id="lukyam-watermark-close" class="lukyam-watermark-close" aria-label="Fechar">&times;</button>
+      </div>
+      <p class="lukyam-watermark-desc">
+        <strong>Lukyam Madeira</strong><br>
+        Desenvolvedor de software focado em resolver problemas reais com soluções limpas e práticas.
+      </p>
+      <div class="lukyam-watermark-links">
+        <a href="https://github.com/Lukyammm" target="_blank" rel="noopener" class="lukyam-watermark-link">
+          ${svgGithub} GitHub
+        </a>
+        <button id="lukyam-copy-email" class="lukyam-watermark-link">
+          ${svgEnv} lukyam.madeira@gmail.com
+        </button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(container);
+
+  var btn = document.getElementById('lukyam-watermark-btn');
+  var modal = document.getElementById('lukyam-watermark-modal');
+  var closeBtn = document.getElementById('lukyam-watermark-close');
+  var copyEmailBtn = document.getElementById('lukyam-copy-email');
+
+  function toggleModal(e) {
+    e.stopPropagation();
+    modal.classList.toggle('show');
+    if (modal.classList.contains('show')) {
+      btn.style.background = 'rgba(15, 23, 42, 0.85)';
+      btn.style.color = '#f8fafc';
+    } else {
+      btn.style.background = '';
+      btn.style.color = '';
+    }
+  }
+
+  function closeModal() {
+    modal.classList.remove('show');
+    btn.style.background = '';
+    btn.style.color = '';
+  }
+
+  btn.addEventListener('click', toggleModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  document.addEventListener('click', function(e) {
+    if (modal.classList.contains('show') && !modal.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+      closeModal();
+    }
+  });
+
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var email = 'lukyam.madeira@gmail.com';
+      
+      function showSuccess() {
+        var originalHtml = copyEmailBtn.innerHTML;
+        copyEmailBtn.innerHTML = '<svg viewBox="0 0 448 512" style="width:14px;height:14px;fill:#10b981;"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> Copiado!';
+        setTimeout(function() {
+          copyEmailBtn.innerHTML = originalHtml;
+        }, 2000);
+      }
+      
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(showSuccess);
+      } else {
+        var textArea = document.createElement("textarea");
+        textArea.value = email;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          showSuccess();
+        } catch (err) {
+          console.error('Erro ao copiar email', err);
+        }
+        textArea.remove();
+      }
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

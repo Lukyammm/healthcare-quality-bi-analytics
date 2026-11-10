@@ -1,5 +1,5 @@
 const PLANILHAS = {
-  principal: '1XUtI9TSMJmTpbtfLjZbJ-uarRN94lu_Aqpsc46Lxmt4'
+  principal: 'SYNTHETIC_DEMO_SPREADSHEET_ID'
 };
 const ABA_CAMINHADAS = 'BASE DE DADOS CAMINHADAS';
 const ABA_NOTIFICA = 'NOTIFICA - BASE';
